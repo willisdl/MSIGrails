@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" hostname="DaveMac.local" id="0" name="Asam_masterIntegrationTestTests" package="msigrails" tests="1" time="1.282" timestamp="2014-02-04T11:55:16">
+      <properties />
+
+      <testcase classname="msigrails.Asam_masterIntegrationTestTests" name="testSomething" time="1.27" />
+
+      <system-out><![CDATA[--Output from testSomething--
+24
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+</testsuites>

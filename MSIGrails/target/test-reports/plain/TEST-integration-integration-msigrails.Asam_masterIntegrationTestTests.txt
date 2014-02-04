@@ -1,0 +1,11 @@
+Testsuite: msigrails.Asam_masterIntegrationTestTests
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 1.282 sec
+------------- Standard Output ---------------
+--Output from testSomething--
+24
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from testSomething--
+------------- ---------------- ---------------
+
+Testcase: testSomething took 1.269 sec

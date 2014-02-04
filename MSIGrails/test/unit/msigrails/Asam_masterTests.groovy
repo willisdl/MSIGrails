@@ -11,7 +11,9 @@ import org.junit.*
 @TestFor(Asam_master)
 class Asam_masterTests {
 
-    void testSomething() {
-       fail "Implement me"
+    void testAsam_master() {
+       def asam = Asam_master.where {subregion == "11"}
+	   println(asam)
+	   assert asam.victim == "VANDERPOOL EXPRESS"
     }
 }
