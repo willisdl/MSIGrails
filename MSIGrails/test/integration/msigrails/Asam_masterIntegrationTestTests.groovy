@@ -20,7 +20,6 @@ class Asam_masterIntegrationTestTests {
 
     @Test
     void testSubregion() {
-		
 		asams.params.MSI_generalFilterType = "Subregion"
 		asams.params.MSI_generalFilterValue = 24
 		asams.params.MSI_outputOptionValue1 = "Date DESC"
