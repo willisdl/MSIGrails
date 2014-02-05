@@ -1,3 +1,7 @@
---Output from testSubregion--
+--Output from testAllDesc--
+--Output from testAllAsc--
 --Output from testSubregionSpecificDate--
---Output from testSubregionDateRange--
+--Output from testSubregionDateAsc--
+--Output from testSubregionDateDesc--
+--Output from testSubregionDateRangeDateDesc--
+--Output from testSubregionDateRangeDateAsc--

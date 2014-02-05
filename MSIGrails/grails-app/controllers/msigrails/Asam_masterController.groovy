@@ -61,9 +61,9 @@ class Asam_masterController {
 		log.error("msi_sort_value = " + msi_sort_value)
 		println(msi_filter_value)
 		if (msi_sort_value.equals('Date DESC')){sort_ord = "a.occur_date desc, a.TX_YYYY desc, a.TX_NUM desc"}
-		if (msi_sort_value.equals('Date ASC')){sort_ord = 'a.occur_date ASC, a.tx_yyyy ASC, a.tx_num ASC'}
-		if (msi_sort_value.equals('Number DESC')){sort_ord = 'a.tx_yyyy DESC, a.tx_num DESC'}
-		if (msi_sort_value.equals('Number ASC')){sort_ord = 'a.tx_yyyy ASC, a.tx_num ASC'}
+		if (msi_sort_value.equals('Date ASC')){sort_ord = 'a.occur_date ASC, a.TX_YYYY ASC, a.TX_NUM ASC'}
+		if (msi_sort_value.equals('Number DESC')){sort_ord = 'a.TX_YYYY DESC, a.TX_NUM DESC'}
+		if (msi_sort_value.equals('Number ASC')){sort_ord = 'a.TX_YYYY ASC, a.TX_NUM ASC'}
 		if (msi_filter_type == 'All'){searchparam[0] = 'All Anti-Shipping Activity Messages'}
 		if (msi_filter_type == 'Subregion'){searchparam[0] = 'ASAMs by Subregion'} 
 		if (msi_filter_type == 'VictimName'){searchparam[0] = "Victim's Name"}
@@ -95,6 +95,27 @@ class Asam_masterController {
 				asams = Asam_master.findAll(clause)
 			}
 		}
+		
+		if (msi_filter_type == 'All'){
+			if (msi_filter_type1 == 'SpecificDate'){
+				def asamdate = new Date().parse('yyyyMMdd', msi_filter_value1)
+				def datestr = asamdate.format('dd-MMM-yy')
+				def clause = "from Asam_master as a where a.occur_date='${datestr}' order by ${sort_ord}"
+				asams = Asam_master.findAll(clause)
+			} else if(msi_filter_type1 == 'DateRange'){
+				def asamdate = msi_filter_value1.tokenize(':')
+				def date1 = new Date().parse('yyyyMMdd', asamdate.get(0))
+				def datestr1 = date1.format('dd-MMM-yy')
+				def date2 = new Date().parse('yyyyMMdd', asamdate.get(1))
+				def datestr2 = date2.format('dd-MMM-yy')
+				def clause = "from Asam_master as a where a.occur_date>='${datestr1}' and a.occur_date<='${datestr2}' order by ${sort_ord}"
+				asams = Asam_master.findAll(clause)
+			} else {
+				def clause = "from Asam_master as a order by ${sort_ord}"
+				asams = Asam_master.findAll(clause)
+			}
+		}
+		
 		[Asamresult: asams]
 	}
 }

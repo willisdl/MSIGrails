@@ -19,7 +19,7 @@ class Asam_masterIntegrationTestTests {
     }
 
     @Test
-    void testSubregion() {
+    void testSubregionDateDesc() {
 		asams.params.MSI_generalFilterType = "Subregion"
 		asams.params.MSI_generalFilterValue = 24
 		asams.params.MSI_outputOptionValue1 = "Date DESC"
@@ -33,7 +33,21 @@ class Asam_masterIntegrationTestTests {
     }
 	
 	@Test
-	void testSubregionDateRange() {
+	void testSubregionDateAsc() {
+		asams.params.MSI_generalFilterType = "Subregion"
+		asams.params.MSI_generalFilterValue = 24
+		asams.params.MSI_outputOptionValue1 = "Date ASC"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "1985"
+		assert asamlist[0].TX_NUM == "30"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "2009"
+		assert asamlist[asamsize].TX_NUM == "389"
+	}
+	
+	@Test
+	void testSubregionDateRangeDateDesc() {
 		asams.params.MSI_generalFilterType = "Subregion"
 		asams.params.MSI_generalFilterValue = 24
 		asams.params.MSI_outputOptionValue1 = "Date DESC"
@@ -44,7 +58,22 @@ class Asam_masterIntegrationTestTests {
 		assert asamlist[0].TX_NUM == "307"
 		def asamsize = asamlist.size() - 1
 		assert asamlist[asamsize].TX_YYYY == "2002"
+		assert asamlist[asamsize].TX_NUM == "273"
+	}
+	
+	@Test
+	void testSubregionDateRangeDateAsc() {
+		asams.params.MSI_generalFilterType = "Subregion"
+		asams.params.MSI_generalFilterValue = 24
+		asams.params.MSI_outputOptionValue1 = "Date ASC"
+		asams.params.MSI_additionalFilterType1 = "DateRange"
+		asams.params.MSI_additionalFilterValue1 = "20020901:20021201"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist[0].TX_YYYY == "2002"
+		assert asamlist[0].TX_NUM == "273"
+		def asamsize = asamlist.size() - 1
 		assert asamlist[asamsize].TX_YYYY == "2002"
+		assert asamlist[asamsize].TX_NUM == "307"
 	}
 	
 	@Test
@@ -57,5 +86,31 @@ class Asam_masterIntegrationTestTests {
 		def asamlist = asams.asam_query().Asamresult
 		assert asamlist[0].TX_YYYY == "2002"
 		assert asamlist[0].TX_NUM == "297"
+	}
+	
+	@Test
+	void testAllDesc() {
+		asams.params.MSI_generalFilterType = "All"
+		asams.params.MSI_outputOptionValue1 = "Date DESC"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "2009"
+		assert asamlist[0].TX_NUM == "419"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "2008"
+		assert asamlist[asamsize].TX_NUM == "137"
+	}
+	
+	@Test
+	void testAllAsc() {
+		asams.params.MSI_generalFilterType = "All"
+		asams.params.MSI_outputOptionValue1 = "Date ASC"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "2008"
+		assert asamlist[0].TX_NUM == "137"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "2009"
+		assert asamlist[asamsize].TX_NUM == "419"
 	}
 }
