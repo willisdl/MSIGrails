@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" hostname="HEGEMONY" id="0" name="Asam_masterIntegrationTestTests" package="msigrails" tests="7" time="32.972" timestamp="2014-02-05T18:28:13">
+  <testsuite errors="0" failures="0" hostname="DavidWillis-PC" id="0" name="Asam_masterIntegrationTestTests" package="msigrails" tests="10" time="178.276" timestamp="2014-02-05T21:20:26">
       <properties />
 
-      <testcase classname="msigrails.Asam_masterIntegrationTestTests" name="testAllDesc" time="16.045" />
+      <testcase classname="msigrails.Asam_masterIntegrationTestTests" name="testSubregionDateRangeDateDesc" time="0.896" />
 
-      <testcase classname="msigrails.Asam_masterIntegrationTestTests" name="testAllAsc" time="15.068" />
+      <testcase classname="msigrails.Asam_masterIntegrationTestTests" name="testSubregionDateRangeDateAsc" time="0.203" />
 
-      <testcase classname="msigrails.Asam_masterIntegrationTestTests" name="testSubregionSpecificDate" time="0.038" />
+      <testcase classname="msigrails.Asam_masterIntegrationTestTests" name="testAllDesc" time="80.879" />
 
-      <testcase classname="msigrails.Asam_masterIntegrationTestTests" name="testSubregionDateAsc" time="0.837" />
+      <testcase classname="msigrails.Asam_masterIntegrationTestTests" name="testAllAsc" time="80.603" />
 
-      <testcase classname="msigrails.Asam_masterIntegrationTestTests" name="testSubregionDateDesc" time="0.81" />
+      <testcase classname="msigrails.Asam_masterIntegrationTestTests" name="testSubregionSpecificDate" time="0.092" />
 
-      <testcase classname="msigrails.Asam_masterIntegrationTestTests" name="testSubregionDateRangeDateDesc" time="0.057" />
+      <testcase classname="msigrails.Asam_masterIntegrationTestTests" name="testSubregionDateAsc" time="4.646" />
 
-      <testcase classname="msigrails.Asam_masterIntegrationTestTests" name="testSubregionDateRangeDateAsc" time="0.081" />
+      <testcase classname="msigrails.Asam_masterIntegrationTestTests" name="testAllSpecificDate" time="0.099" />
 
-      <system-out><![CDATA[--Output from testAllDesc--
+      <testcase classname="msigrails.Asam_masterIntegrationTestTests" name="testSubregionDateDesc" time="5.299" />
+
+      <testcase classname="msigrails.Asam_masterIntegrationTestTests" name="testAllDateRangeDateDesc" time="3.71" />
+
+      <testcase classname="msigrails.Asam_masterIntegrationTestTests" name="testAllDateRangeDateAsc" time="1.759" />
+
+      <system-out><![CDATA[--Output from testSubregionDateRangeDateDesc--
+24
+--Output from testSubregionDateRangeDateAsc--
+24
+--Output from testAllDesc--
 null
 --Output from testAllAsc--
 null
@@ -25,21 +35,26 @@ null
 24
 --Output from testSubregionDateAsc--
 24
+--Output from testAllSpecificDate--
+null
 --Output from testSubregionDateDesc--
 24
---Output from testSubregionDateRangeDateDesc--
-24
---Output from testSubregionDateRangeDateAsc--
-24
+--Output from testAllDateRangeDateDesc--
+null
+--Output from testAllDateRangeDateAsc--
+null
 ]]></system-out>
 
-      <system-err><![CDATA[--Output from testAllDesc--
+      <system-err><![CDATA[--Output from testSubregionDateRangeDateDesc--
+--Output from testSubregionDateRangeDateAsc--
+--Output from testAllDesc--
 --Output from testAllAsc--
 --Output from testSubregionSpecificDate--
 --Output from testSubregionDateAsc--
+--Output from testAllSpecificDate--
 --Output from testSubregionDateDesc--
---Output from testSubregionDateRangeDateDesc--
---Output from testSubregionDateRangeDateAsc--
+--Output from testAllDateRangeDateDesc--
+--Output from testAllDateRangeDateAsc--
 ]]></system-err>
 
   </testsuite>

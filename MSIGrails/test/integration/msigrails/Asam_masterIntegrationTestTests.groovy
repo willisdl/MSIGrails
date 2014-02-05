@@ -113,4 +113,43 @@ class Asam_masterIntegrationTestTests {
 		assert asamlist[asamsize].TX_YYYY == "2009"
 		assert asamlist[asamsize].TX_NUM == "419"
 	}
+	
+	@Test
+	void testAllSpecificDate() {
+		asams.params.MSI_generalFilterType = "All"
+		asams.params.MSI_outputOptionValue1 = "Date DESC"
+		asams.params.MSI_additionalFilterType1 = "SpecificDate"
+		asams.params.MSI_additionalFilterValue1 = "20021016"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist[0].TX_YYYY == "2002"
+		assert asamlist[0].TX_NUM == "297"
+	}
+	
+	@Test
+	void testAllDateRangeDateDesc() {
+		asams.params.MSI_generalFilterType = "All"
+		asams.params.MSI_outputOptionValue1 = "Date DESC"
+		asams.params.MSI_additionalFilterType1 = "DateRange"
+		asams.params.MSI_additionalFilterValue1 = "20020901:20021201"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist[0].TX_YYYY == "2002"
+		assert asamlist[0].TX_NUM == "343"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "2002"
+		assert asamlist[asamsize].TX_NUM == "251"
+	}
+	
+	@Test
+	void testAllDateRangeDateAsc() {
+		asams.params.MSI_generalFilterType = "All"
+		asams.params.MSI_outputOptionValue1 = "Date ASC"
+		asams.params.MSI_additionalFilterType1 = "DateRange"
+		asams.params.MSI_additionalFilterValue1 = "20020901:20021201"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist[0].TX_YYYY == "2002"
+		assert asamlist[0].TX_NUM == "251"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "2002"
+		assert asamlist[asamsize].TX_NUM == "343"
+	}
 }
