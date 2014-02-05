@@ -31,4 +31,31 @@ class Asam_masterIntegrationTestTests {
 		assert asamlist[asamsize].TX_YYYY == "1985"
 		assert asamlist[asamsize].TX_NUM == "30"
     }
+	
+	@Test
+	void testSubregionDateRange() {
+		asams.params.MSI_generalFilterType = "Subregion"
+		asams.params.MSI_generalFilterValue = 24
+		asams.params.MSI_outputOptionValue1 = "Date DESC"
+		asams.params.MSI_additionalFilterType1 = "DateRange"
+		asams.params.MSI_additionalFilterValue1 = "20020901:20021201"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist[0].TX_YYYY == "2002"
+		assert asamlist[0].TX_NUM == "307"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "2002"
+		assert asamlist[asamsize].TX_YYYY == "2002"
+	}
+	
+	@Test
+	void testSubregionSpecificDate() {
+		asams.params.MSI_generalFilterType = "Subregion"
+		asams.params.MSI_generalFilterValue = 24
+		asams.params.MSI_outputOptionValue1 = "Date DESC"
+		asams.params.MSI_additionalFilterType1 = "SpecificDate"
+		asams.params.MSI_additionalFilterValue1 = "20021016"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist[0].TX_YYYY == "2002"
+		assert asamlist[0].TX_NUM == "297"
+	}
 }

@@ -41,7 +41,7 @@ class Asam_masterController {
 	}
 	
 	def asam_query(){
-		if (params.MSI_queryType != null){msi_query_type = params.MSI_queryType}
+		def msi_query_type = params.MSI_queryType
 		def msi_filter_type = params.MSI_generalFilterType
 		def msi_filter_value = params.MSI_generalFilterValue.toString()
 		def msi_filter_type1 = params.MSI_additionalFilterType1
@@ -60,12 +60,10 @@ class Asam_masterController {
 		log.error("msi_filter_value = " + msi_filter_value)
 		log.error("msi_sort_value = " + msi_sort_value)
 		println(msi_filter_value)
-		if (msi_sort_value.equals('Date DESC')){
-			sort_ord = "a.occur_date desc, a.TX_YYYY desc, a.TX_NUM desc"
-			}
-		if (msi_sort_value.equals('Date ASC')){sort_ord = 'occur_date ASC, tx_yyyy ASC, tx_num ASC'}
-		if (msi_sort_value.equals('Number DESC')){sort_ord = 'tx_yyyy DESC, tx_num DESC'}
-		if (msi_sort_value.equals('Number ASC')){sort_ord = 'tx_yyyy ASC, tx_num ASC'}
+		if (msi_sort_value.equals('Date DESC')){sort_ord = "a.occur_date desc, a.TX_YYYY desc, a.TX_NUM desc"}
+		if (msi_sort_value.equals('Date ASC')){sort_ord = 'a.occur_date ASC, a.tx_yyyy ASC, a.tx_num ASC'}
+		if (msi_sort_value.equals('Number DESC')){sort_ord = 'a.tx_yyyy DESC, a.tx_num DESC'}
+		if (msi_sort_value.equals('Number ASC')){sort_ord = 'a.tx_yyyy ASC, a.tx_num ASC'}
 		if (msi_filter_type == 'All'){searchparam[0] = 'All Anti-Shipping Activity Messages'}
 		if (msi_filter_type == 'Subregion'){searchparam[0] = 'ASAMs by Subregion'} 
 		if (msi_filter_type == 'VictimName'){searchparam[0] = "Victim's Name"}
@@ -78,16 +76,21 @@ class Asam_masterController {
 		def asams
 		
 		if (msi_filter_type == 'Subregion'){
+			def type = "subregion"
 			if (msi_filter_type1 == 'SpecificDate'){
-				asamdate = DateTime.parse(msi_filter_value1)
-				asams = AsamMaster.where(subregion: msi_filter_value).where(occur_date: asamdate).order(sort_ord)
+				def asamdate = new Date().parse('yyyyMMdd', msi_filter_value1)
+				def datestr = asamdate.format('dd-MMM-yy')
+				def clause = "from Asam_master as a where a.${type}='${msi_filter_value}' and a.occur_date='${datestr}' order by ${sort_ord}"
+				asams = Asam_master.findAll(clause)
 			} else if(msi_filter_type1 == 'DateRange'){
-				asamdate = msi_filter_value1.split(':')
-				date1 = DateTime.parse(asamdate[0])
-				date2 = DateTime.parse(asamdate[1])
-				asams = AsamMaster.where(subregion: msi_filter_value).where(occur_date: date1..date2).order(sort_ord)
+				def asamdate = msi_filter_value1.tokenize(':')
+				def date1 = new Date().parse('yyyyMMdd', asamdate.get(0))
+				def datestr1 = date1.format('dd-MMM-yy')
+				def date2 = new Date().parse('yyyyMMdd', asamdate.get(1))
+				def datestr2 = date2.format('dd-MMM-yy')
+				def clause = "from Asam_master as a where a.${type}='${msi_filter_value}' and a.occur_date>='${datestr1}' and a.occur_date<='${datestr2}' order by ${sort_ord}"
+				asams = Asam_master.findAll(clause)
 			} else {
-				def type = "subregion"
 				def clause = "from Asam_master as a where a.${type}='${msi_filter_value}' order by ${sort_ord}"
 				asams = Asam_master.findAll(clause)
 			}

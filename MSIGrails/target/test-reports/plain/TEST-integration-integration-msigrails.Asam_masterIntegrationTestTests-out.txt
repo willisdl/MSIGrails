@@ -1,2 +1,6 @@
---Output from testSomething--
+--Output from testSubregion--
+24
+--Output from testSubregionSpecificDate--
+24
+--Output from testSubregionDateRange--
 24
