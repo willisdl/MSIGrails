@@ -5,6 +5,7 @@ import org.apache.commons.logging.LogFactory
 
 class Asam_masterController {
 	private static final log = LogFactory.getLog(this)
+	def asamService
 
     def index() { }
 	
@@ -53,6 +54,8 @@ class Asam_masterController {
 		def msi_sort_value = params.MSI_outputOptionValue1
 		def msi_output_option_value2 = params.MSI_outputOptionValue2
 		def msi_map = params.MSI_MAP
+		
+		
 		def searchparam = []
 		def sort_ord
 		
