@@ -32,7 +32,7 @@ class AsamService {
 		(91..97).each {region ->
 			subregions.add(["Subregion ${region}", region])
 		}
-		subregions
+		return subregions
 	}
 
     def asamQuery(String filter_type, String filter_value, String sort_value, String filter_type1, String filter_value1) {
@@ -91,11 +91,20 @@ class AsamService {
 				asams = Asam_master.findAll(clause)
 			} else {
 				def clause = "from Asam_master as a order by ${sort_ord}"
-				asams = Asam_master.findAll(clause)
+				asams = Asam_master.findAll()(clause)
 			}
 		}
 		
-		asams
+		//
+		// Search for a specific reference number
+		//
+		if (filter_type == 'SpecificNumber'){
+		  def ref = filter_value.split('_')
+		  def clause = "from Asam_master as a where a.tx_yyyy='${ref[0]}' and a.tx_num='${ref[1]}'"
+		  asams = Asam_master.findAll(clause)
+		}
+		
+		return asams
 
     }
 	
@@ -111,7 +120,7 @@ class AsamService {
 		if (sort_value.equals('Date ASC')){searchparam[3] = 'Ascending Date of Occurrence'}
 		if (sort_value.equals('Number DESC')){searchparam[3] = 'Descending ASAM Ref. Number'}
 		if (sort_value.equals('Number ASC')){searchparam[3] = 'Ascending ASAM Ref. Number'}
-		
+		if (filter_type == 'SpecificNumber'){searchparam[0] = "Single ASAM Ref. Number: '${filter_value}'"}
 		
 	}
 }
