@@ -18,6 +18,15 @@ class Asam_masterIntegrationTestTests {
         // Tear down logic here
     }
 
+	@Test
+	void testSubregions() {
+		def subs = asams.asam().Subregions
+		assert subs[0] == 11
+		def sublength = subs.size()
+		assert subs[sublength - 1] == 97
+		
+	}
+	
     @Test
     void testSubregionDateDesc() {
 		asams.params.MSI_generalFilterType = "Subregion"
@@ -30,7 +39,11 @@ class Asam_masterIntegrationTestTests {
 		def asamsize = asamlist.size() - 1
 		assert asamlist[asamsize].TX_YYYY == "1985"
 		assert asamlist[asamsize].TX_NUM == "30"
+		def search = asams.asam_query().Searchparam
+		assert search[0].equals('ASAMs by Subregion')
     }
+	
+	
 	
 	@Test
 	void testSubregionDateAsc() {
@@ -88,6 +101,8 @@ class Asam_masterIntegrationTestTests {
 		assert asamlist[0].TX_NUM == "297"
 	}
 	
+	
+	
 	@Test
 	void testAllDesc() {
 		asams.params.MSI_generalFilterType = "All"
@@ -100,6 +115,7 @@ class Asam_masterIntegrationTestTests {
 		assert asamlist[asamsize].TX_YYYY == "2008"
 		assert asamlist[asamsize].TX_NUM == "137"
 	}
+	
 	
 	@Test
 	void testAllAsc() {
@@ -152,4 +168,5 @@ class Asam_masterIntegrationTestTests {
 		assert asamlist[asamsize].TX_YYYY == "2002"
 		assert asamlist[asamsize].TX_NUM == "343"
 	}
+	
 }

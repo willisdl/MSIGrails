@@ -11,6 +11,8 @@ class Asam_masterController {
 	
 	def asam(){
 		def subregions = []
+		subregions = asamService.getSubs()
+		/*
 		(11..19).each {region ->
 			subregions.add(["Subregion ${region}", region])
 		}
@@ -38,6 +40,7 @@ class Asam_masterController {
 		(91..97).each {region ->
 			subregions.add(["Subregion ${region}", region])
 		}
+		*/
 		[Subregions: subregions]
 	}
 	
@@ -55,8 +58,12 @@ class Asam_masterController {
 		def msi_output_option_value2 = params.MSI_outputOptionValue2
 		def msi_map = params.MSI_MAP
 		
-		
+		def asams
 		def searchparam = []
+		
+		asams = asamService.asamQuery(msi_filter_type, msi_filter_value, msi_sort_value, msi_filter_type1, msi_filter_value1)
+		searchparam = asamService.getSearchParams(msi_filter_type, msi_filter_value, msi_sort_value, msi_filter_type1, msi_filter_value1)
+		/*
 		def sort_ord
 		
 		log.error("msi_filter_type = " + msi_filter_type)
@@ -76,7 +83,7 @@ class Asam_masterController {
 		if (msi_sort_value.equals('Date ASC')){searchparam[3] = 'Ascending Date of Occurrence'}
 		if (msi_sort_value.equals('Number DESC')){searchparam[3] = 'Descending ASAM Ref. Number'}
 		if (msi_sort_value.equals('Number ASC')){searchparam[3] = 'Ascending ASAM Ref. Number'}
-		def asams
+		
 		
 		if (msi_filter_type == 'Subregion'){
 			def type = "subregion"
@@ -119,6 +126,9 @@ class Asam_masterController {
 			}
 		}
 		
-		[Asamresult: asams]
+		*/
+		
+		
+		[Asamresult: asams, Searchparam: searchparam]
 	}
 }
