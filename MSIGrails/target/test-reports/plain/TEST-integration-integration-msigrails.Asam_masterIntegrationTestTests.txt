@@ -1,13 +1,10 @@
 Testsuite: msigrails.Asam_masterIntegrationTestTests
-Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 27.423 sec
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.695 sec
 ------------- Standard Output ---------------
---Output from testSubregionDateDesc--
---Output from testSubregions--
+--Output from testSpecificNumber--
 ------------- ---------------- ---------------
 ------------- Standard Error -----------------
---Output from testSubregionDateDesc--
---Output from testSubregions--
+--Output from testSpecificNumber--
 ------------- ---------------- ---------------
 
-Testcase: testSubregionDateDesc took 27.264 sec
-Testcase: testSubregions took 0.14 sec
+Testcase: testSpecificNumber took 0.684 sec

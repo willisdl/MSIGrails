@@ -87,7 +87,7 @@ class AsamService {
 				def clause = "from Asam_master as a where a.occur_date>='${datestr1}' and a.occur_date<='${datestr2}' order by ${sort_ord}"
 				asams = Asam_master.findAll(clause)
 			} else {
-				def clause = "from Asam_master as a order by ${sort_ord}"
+				//def clause = "from Asam_master as a order by ${sort_ord}"
 				asams = Asam_master.findAll(){
 					and{
 						if (sort_type.equals('date')){
@@ -109,7 +109,7 @@ class AsamService {
 		//
 		if (filter_type == 'SpecificNumber'){
 		  def ref = filter_value.split('_')
-		  def clause = "from Asam_master as a where a.tx_yyyy='${ref[0]}' and a.tx_num='${ref[1]}'"
+		  def clause = "from Asam_master as a where a.TX_YYYY='${ref[0]}' and a.TX_NUM='${ref[1]}'"
 		  asams = Asam_master.findAll(clause)
 		}
 		
@@ -123,13 +123,17 @@ class AsamService {
 		if (filter_type == 'All'){searchparam[0] = 'All Anti-Shipping Activity Messages'}
 		if (filter_type == 'Subregion'){searchparam[0] = 'ASAMs by Subregion'}
 		if (filter_type == 'VictimName'){searchparam[0] = "Victim's Name"}
+		if (filter_type == 'NumberRange'){
+			def refnums = filter_value1.tokenize(':')
+			searchparam[0] = ("ASAM Ref. Number Range :   from ${refnums[0]} to ${refnums[1]}").toString()
+			}
 		searchparam[1] = filter_value
 		searchparam[2] = 'None'
 		if (sort_value.equals('Date DESC')){searchparam[3] = 'Descending Date of Occurrence'}
 		if (sort_value.equals('Date ASC')){searchparam[3] = 'Ascending Date of Occurrence'}
 		if (sort_value.equals('Number DESC')){searchparam[3] = 'Descending ASAM Ref. Number'}
 		if (sort_value.equals('Number ASC')){searchparam[3] = 'Ascending ASAM Ref. Number'}
-		if (filter_type == 'SpecificNumber'){searchparam[0] = "Single ASAM Ref. Number: '${filter_value}'"}
+		if (filter_type == 'SpecificNumber'){searchparam[0] = ("Single ASAM Ref. Number: ${filter_value}").toString()}
 		return searchparam
 	}
 }

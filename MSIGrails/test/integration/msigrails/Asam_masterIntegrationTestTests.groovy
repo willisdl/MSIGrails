@@ -18,6 +18,7 @@ class Asam_masterIntegrationTestTests {
         // Tear down logic here
     }
 
+	/*
 	@Test
 	void testSubregions() {
 		def subs = asams.asam().Subregions
@@ -104,7 +105,7 @@ class Asam_masterIntegrationTestTests {
 	
 	
 	@Test
-	void testAllDesc() {
+	void testAllDateDesc() {
 		asams.params.MSI_generalFilterType = "All"
 		asams.params.MSI_outputOptionValue1 = "Date DESC"
 		def asamlist = asams.asam_query().Asamresult
@@ -118,7 +119,7 @@ class Asam_masterIntegrationTestTests {
 	
 	
 	@Test
-	void testAllAsc() {
+	void testAllDateAsc() {
 		asams.params.MSI_generalFilterType = "All"
 		asams.params.MSI_outputOptionValue1 = "Date ASC"
 		def asamlist = asams.asam_query().Asamresult
@@ -167,6 +168,98 @@ class Asam_masterIntegrationTestTests {
 		def asamsize = asamlist.size() - 1
 		assert asamlist[asamsize].TX_YYYY == "2002"
 		assert asamlist[asamsize].TX_NUM == "343"
+	}
+	
+	@Test
+	void testSubregionNumberDesc() {
+		asams.params.MSI_generalFilterType = "Subregion"
+		asams.params.MSI_generalFilterValue = 21
+		asams.params.MSI_outputOptionValue1 = "Number DESC"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "2009"
+		assert asamlist[0].TX_NUM == "345"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "1995"
+		assert asamlist[asamsize].TX_NUM == "85"
+		def search = asams.asam_query().Searchparam
+		assert search[0].equals('ASAMs by Subregion')
+	}
+	
+	@Test
+	void testSubregionNumberAsc() {
+		asams.params.MSI_generalFilterType = "Subregion"
+		asams.params.MSI_generalFilterValue = 21
+		asams.params.MSI_outputOptionValue1 = "Number ASC"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "1995"
+		assert asamlist[0].TX_NUM == "85"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "2009"
+		assert asamlist[asamsize].TX_NUM == "345"
+		def search = asams.asam_query().Searchparam
+		assert search[0].equals('ASAMs by Subregion')
+	}
+	
+	@Test
+	void testAllNumberDesc() {
+		asams.params.MSI_generalFilterType = "All"
+		asams.params.MSI_outputOptionValue1 = "Number DESC"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "2009"
+		assert asamlist[0].TX_NUM == "421"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "1985"
+		assert asamlist[asamsize].TX_NUM == "1"
+		def search = asams.asam_query().Searchparam
+		assert search[0].equals('All Anti-Shipping Activity Messages')
+	}
+	
+	@Test
+	void testAllNumberAsc() {
+		asams.params.MSI_generalFilterType = "All"
+		asams.params.MSI_outputOptionValue1 = "Number ASC"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "1985"
+		assert asamlist[0].TX_NUM == "1"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "2009"
+		assert asamlist[asamsize].TX_NUM == "421"
+		def search = asams.asam_query().Searchparam
+		assert search[0].equals('All Anti-Shipping Activity Messages')
+	}
+	*/
+	@Test
+	void testSpecificNumber() {
+		asams.params.MSI_generalFilterType = "SpecificNumber"
+		asams.params.MSI_generalFilterValue = "2008_336"
+		asams.params.MSI_outputOptionValue1 = "Number DESC"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].victim.equals("CHEMICAL TANKER")
+		def search = asams.asam_query().Searchparam
+		def testSearch = "Single ASAM Ref. Number: 2008_336"
+		assert search[0].equals(testSearch)
+	}
+	
+	@Test
+	void testNumberDesc() {
+		asams.params.MSI_generalFilterType = "NumberRange"
+		asams.params.MSI_generalFilterValue = "2002_245:2004_12"
+		asams.params.MSI_outputOptionValue1 = "Number DESC"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "2004"
+		assert asamlist[0].TX_NUM == "12"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "2002"
+		assert asamlist[asamsize].TX_NUM == "245"
+		def search = asams.asam_query().Searchparam
+		def testSearch = "ASAM Ref. Number Range :   from 2002_245 to 2004_12"
+		assert search[0].equals(testSearch)
 	}
 	
 }

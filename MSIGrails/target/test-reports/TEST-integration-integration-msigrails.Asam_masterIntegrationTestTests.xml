@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="DaveMac.local" name="msigrails.Asam_masterIntegrationTestTests" tests="2" time="27.423" timestamp="2014-03-01T22:31:22">
+<testsuite errors="0" failures="0" hostname="DaveMac.local" name="msigrails.Asam_masterIntegrationTestTests" tests="1" time="0.695" timestamp="2014-03-02T15:54:55">
   <properties />
-  <testcase classname="msigrails.Asam_masterIntegrationTestTests" name="testSubregionDateDesc" time="27.264" />
-  <testcase classname="msigrails.Asam_masterIntegrationTestTests" name="testSubregions" time="0.14" />
-  <system-out><![CDATA[--Output from testSubregionDateDesc--
---Output from testSubregions--
+  <testcase classname="msigrails.Asam_masterIntegrationTestTests" name="testSpecificNumber" time="0.684" />
+  <system-out><![CDATA[--Output from testSpecificNumber--
 ]]></system-out>
-  <system-err><![CDATA[--Output from testSubregionDateDesc--
---Output from testSubregions--
+  <system-err><![CDATA[--Output from testSpecificNumber--
 ]]></system-err>
 </testsuite>
