@@ -262,4 +262,131 @@ class Asam_masterIntegrationTestTests {
 		assert search[0].equals(testSearch)
 	}
 	
+	@Test
+	void testNumberAsc() {
+		asams.params.MSI_generalFilterType = "NumberRange"
+		asams.params.MSI_generalFilterValue = "2002_245:2004_12"
+		asams.params.MSI_outputOptionValue1 = "Number ASC"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "2002"
+		assert asamlist[0].TX_NUM == "245"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "2004"
+		assert asamlist[asamsize].TX_NUM == "12"
+		def search = asams.asam_query().Searchparam
+		def testSearch = "ASAM Ref. Number Range :   from 2002_245 to 2004_12"
+		assert search[0].equals(testSearch)
+	}
+	
+	@Test
+	void testNumberDateDesc() {
+		asams.params.MSI_generalFilterType = "NumberRange"
+		asams.params.MSI_generalFilterValue = "2002_245:2004_12"
+		asams.params.MSI_outputOptionValue1 = "Date DESC"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "2002"
+		assert asamlist[0].TX_NUM == "245"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "2004"
+		assert asamlist[asamsize].TX_NUM == "12"
+		def search = asams.asam_query().Searchparam
+		def testSearch = "ASAM Ref. Number Range :   from 2002_245 to 2004_12"
+		assert search[0].equals(testSearch)
+	}
+	
+	@Test
+	void testNumberDateAsc() {
+		asams.params.MSI_generalFilterType = "NumberRange"
+		asams.params.MSI_generalFilterValue = "2002_245:2004_12"
+		asams.params.MSI_outputOptionValue1 = "Date ASC"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "2002"
+		assert asamlist[0].TX_NUM == "245"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "2004"
+		assert asamlist[asamsize].TX_NUM == "12"
+		def search = asams.asam_query().Searchparam
+		def testSearch = "ASAM Ref. Number Range :   from 2002_245 to 2004_12"
+		assert search[0].equals(testSearch)
+	}
+	
+	@Test
+	void testNumberDateRangeDesc() {
+		asams.params.MSI_generalFilterType = "NumberRange"
+		asams.params.MSI_generalFilterValue = "2002_245:2004_12"
+		asams.params.MSI_outputOptionValue1 = "Number DESC"
+		asams.params.MSI_additionalFilterType1 = "DateRange"
+		asams.params.MSI_additionalFilterValue1 = "20020901:20021201"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "2003"
+		assert asamlist[0].TX_NUM == "1"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "2002"
+		assert asamlist[asamsize].TX_NUM == "246"
+		def search = asams.asam_query().Searchparam
+		def testSearch = "ASAM Ref. Number Range :   from 2002_245 to 2004_12"
+		assert search[0].equals(testSearch)
+	}
+	
+	@Test
+	void testNumberDateRangeAsc() {
+		asams.params.MSI_generalFilterType = "NumberRange"
+		asams.params.MSI_generalFilterValue = "2002_245:2004_12"
+		asams.params.MSI_outputOptionValue1 = "Number ASC"
+		asams.params.MSI_additionalFilterType1 = "DateRange"
+		asams.params.MSI_additionalFilterValue1 = "20020901:20021201"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "2002"
+		assert asamlist[0].TX_NUM == "246"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "2003"
+		assert asamlist[asamsize].TX_NUM == "1"
+		def search = asams.asam_query().Searchparam
+		def testSearch = "ASAM Ref. Number Range :   from 2002_245 to 2004_12"
+		assert search[0].equals(testSearch)
+	}
+	
+	@Test
+	void testNumberDateRangeDateDesc() {
+		asams.params.MSI_generalFilterType = "NumberRange"
+		asams.params.MSI_generalFilterValue = "2002_245:2004_12"
+		asams.params.MSI_outputOptionValue1 = "Date DESC"
+		asams.params.MSI_additionalFilterType1 = "DateRange"
+		asams.params.MSI_additionalFilterValue1 = "20020901:20021201"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "2002"
+		assert asamlist[0].TX_NUM == "343"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "2002"
+		assert asamlist[asamsize].TX_NUM == "251"
+		def search = asams.asam_query().Searchparam
+		def testSearch = "ASAM Ref. Number Range :   from 2002_245 to 2004_12"
+		assert search[0].equals(testSearch)
+	}
+	
+	@Test
+	void testNumberDateRangeDateAsc() {
+		asams.params.MSI_generalFilterType = "NumberRange"
+		asams.params.MSI_generalFilterValue = "2002_245:2004_12"
+		asams.params.MSI_outputOptionValue1 = "Date ASC"
+		asams.params.MSI_additionalFilterType1 = "DateRange"
+		asams.params.MSI_additionalFilterValue1 = "20020901:20021201"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "2002"
+		assert asamlist[0].TX_NUM == "251"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "2002"
+		assert asamlist[asamsize].TX_NUM == "343"
+		def search = asams.asam_query().Searchparam
+		def testSearch = "ASAM Ref. Number Range :   from 2002_245 to 2004_12"
+		assert search[0].equals(testSearch)
+	}
+	
 }
