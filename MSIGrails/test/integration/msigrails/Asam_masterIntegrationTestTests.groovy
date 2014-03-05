@@ -389,4 +389,164 @@ class Asam_masterIntegrationTestTests {
 		assert search[0].equals(testSearch)
 	}
 	
+	@Test
+	void testVictimDateDesc() {
+		asams.params.MSI_generalFilterType = "VictimName"
+		asams.params.MSI_generalFilterValue = "yacht"
+		asams.params.MSI_outputOptionValue1 = "Date DESC"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "2009"
+		assert asamlist[0].TX_NUM == "297"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "1996"
+		assert asamlist[asamsize].TX_NUM == "9"
+		def search = asams.asam_query().Searchparam
+		def testSearch = "Victim's Name:  yacht"
+		assert search[0].equals(testSearch)
+	}
+	
+	@Test
+	void testVictimDateAsc() {
+		asams.params.MSI_generalFilterType = "VictimName"
+		asams.params.MSI_generalFilterValue = "yacht"
+		asams.params.MSI_outputOptionValue1 = "Date ASC"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "1996"
+		assert asamlist[0].TX_NUM == "9"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "2009"
+		assert asamlist[asamsize].TX_NUM == "297"
+		def search = asams.asam_query().Searchparam
+		def testSearch = "Victim's Name:  yacht"
+		assert search[0].equals(testSearch)
+	}
+	
+	@Test
+	void testVictimNumberDesc() {
+		asams.params.MSI_generalFilterType = "VictimName"
+		asams.params.MSI_generalFilterValue = "yacht"
+		asams.params.MSI_outputOptionValue1 = "Number DESC"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "1996"
+		assert asamlist[0].TX_NUM == "9"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "2009"
+		assert asamlist[asamsize].TX_NUM == "297"
+		def search = asams.asam_query().Searchparam
+		def testSearch = "Victim's Name:  yacht"
+		assert search[0].equals(testSearch)
+	}
+	
+	@Test
+	void testVictimNumberAsc() {
+		asams.params.MSI_generalFilterType = "VictimName"
+		asams.params.MSI_generalFilterValue = "yacht"
+		asams.params.MSI_outputOptionValue1 = "Number ASC"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "1996"
+		assert asamlist[0].TX_NUM == "9"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "2009"
+		assert asamlist[asamsize].TX_NUM == "297"
+		def search = asams.asam_query().Searchparam
+		def testSearch = "Victim's Name:  yacht"
+		assert search[0].equals(testSearch)
+	}
+	
+	@Test
+	void testVictimDateRangeDateDesc() {
+		asams.params.MSI_generalFilterType = "VictimName"
+		asams.params.MSI_generalFilterValue = "yacht"
+		asams.params.MSI_outputOptionValue1 = "Date DESC"
+		asams.params.MSI_additionalFilterType1 = "DateRange"
+		asams.params.MSI_additionalFilterValue1 = "20010101:20011231"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "2001"
+		assert asamlist[0].TX_NUM == "351"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "2001"
+		assert asamlist[asamsize].TX_NUM == "119"
+		def search = asams.asam_query().Searchparam
+		def testSearch = "Victim's Name:  yacht"
+		assert search[0].equals(testSearch)
+	}
+	
+	@Test
+	void testVictimDateRangeDateAsc() {
+		asams.params.MSI_generalFilterType = "VictimName"
+		asams.params.MSI_generalFilterValue = "yacht"
+		asams.params.MSI_outputOptionValue1 = "Date ASC"
+		asams.params.MSI_additionalFilterType1 = "DateRange"
+		asams.params.MSI_additionalFilterValue1 = "20010101:20011231"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "2001"
+		assert asamlist[0].TX_NUM == "119"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "2001"
+		assert asamlist[asamsize].TX_NUM == "351"
+		def search = asams.asam_query().Searchparam
+		def testSearch = "Victim's Name:  yacht"
+		assert search[0].equals(testSearch)
+	}
+	
+	@Test
+	void testVictimDateRangeNumberDesc() {
+		asams.params.MSI_generalFilterType = "VictimName"
+		asams.params.MSI_generalFilterValue = "yacht"
+		asams.params.MSI_outputOptionValue1 = "Number DESC"
+		asams.params.MSI_additionalFilterType1 = "DateRange"
+		asams.params.MSI_additionalFilterValue1 = "20010101:20011231"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "2001"
+		assert asamlist[0].TX_NUM == "351"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "2001"
+		assert asamlist[asamsize].TX_NUM == "119"
+		def search = asams.asam_query().Searchparam
+		def testSearch = "Victim's Name:  yacht"
+		assert search[0].equals(testSearch)
+	}
+	
+	@Test
+	void testVictimDateRangeNumberAsc() {
+		asams.params.MSI_generalFilterType = "VictimName"
+		asams.params.MSI_generalFilterValue = "yacht"
+		asams.params.MSI_outputOptionValue1 = "Number ASC"
+		asams.params.MSI_additionalFilterType1 = "DateRange"
+		asams.params.MSI_additionalFilterValue1 = "20010101:20011231"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "2001"
+		assert asamlist[0].TX_NUM == "119"
+		def asamsize = asamlist.size() - 1
+		assert asamlist[asamsize].TX_YYYY == "2001"
+		assert asamlist[asamsize].TX_NUM == "351"
+		def search = asams.asam_query().Searchparam
+		def testSearch = "Victim's Name:  yacht"
+		assert search[0].equals(testSearch)
+	}
+	
+	@Test
+	void testVictimSpecificDate() {
+		asams.params.MSI_generalFilterType = "VictimName"
+		asams.params.MSI_generalFilterValue = "yacht"
+		asams.params.MSI_outputOptionValue1 = "Date DESC"
+		asams.params.MSI_additionalFilterType1 = "SpecificDate"
+		asams.params.MSI_additionalFilterValue1 = "20010812"
+		def asamlist = asams.asam_query().Asamresult
+		assert asamlist.size() != 0
+		assert asamlist[0].TX_YYYY == "2001"
+		assert asamlist[0].TX_NUM == "244"
+		def search = asams.asam_query().Searchparam
+		def testSearch = "Victim's Name:  yacht"
+		assert search[0].equals(testSearch)
+	}
+	
 }
