@@ -12,13 +12,20 @@ hibernate {
 }
 // environment specific settings
 environments {
-    development {
+    development_pc {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             //url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
 			url = "jdbc:oracle:thin:@192.168.2.20:1521:orcl"
         }
     }
+	development_mac {
+		dataSource {
+			dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
+			//url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+			url = "jdbc:oracle:thin:@192.168.2.20:1521:orcl"
+		}
+	}
     test {
         dataSource {
             //dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
