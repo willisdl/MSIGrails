@@ -60,9 +60,14 @@ grails.exceptionresolver.params.exclude = ['password']
 grails.hibernate.cache.queries = false
 
 environments {
-    development {
+    development_pc {
         grails.logging.jul.usebridge = true
+		repo_path = "E:\\sites\\"
     }
+	development_mac {
+		grails.logging.jul.usebridge = true
+		repo_path = "/Users/davidwillis/Sites/"
+	}
     production {
         grails.logging.jul.usebridge = false
         // TODO: grails.serverURL = "http://www.changeme.com"
