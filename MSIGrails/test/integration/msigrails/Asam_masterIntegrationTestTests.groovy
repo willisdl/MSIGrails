@@ -18,7 +18,7 @@ class Asam_masterIntegrationTestTests {
         // Tear down logic here
     }
 
-	/*
+	
 	@Test
 	void testSubregions() {
 		def subs = asams.asam().Subregions
@@ -27,6 +27,7 @@ class Asam_masterIntegrationTestTests {
 		assert subs[sublength - 1] == 97
 		
 	}
+	
 	
     @Test
     void testSubregionDateDesc() {
@@ -231,7 +232,7 @@ class Asam_masterIntegrationTestTests {
 		def search = asams.asam_query().Searchparam
 		assert search[0].equals('All Anti-Shipping Activity Messages')
 	}
-	*/
+	
 	@Test
 	void testSpecificNumber() {
 		asams.params.MSI_generalFilterType = "SpecificNumber"
@@ -286,11 +287,11 @@ class Asam_masterIntegrationTestTests {
 		asams.params.MSI_outputOptionValue1 = "Date DESC"
 		def asamlist = asams.asam_query().Asamresult
 		assert asamlist.size() != 0
-		assert asamlist[0].TX_YYYY == "2002"
-		assert asamlist[0].TX_NUM == "245"
+		assert asamlist[0].TX_YYYY == "2004"
+		assert asamlist[0].TX_NUM == "12"
 		def asamsize = asamlist.size() - 1
-		assert asamlist[asamsize].TX_YYYY == "2004"
-		assert asamlist[asamsize].TX_NUM == "12"
+		assert asamlist[asamsize].TX_YYYY == "2002"
+		assert asamlist[asamsize].TX_NUM == "245"
 		def search = asams.asam_query().Searchparam
 		def testSearch = "ASAM Ref. Number Range :   from 2002_245 to 2004_12"
 		assert search[0].equals(testSearch)
@@ -403,7 +404,7 @@ class Asam_masterIntegrationTestTests {
 		assert asamlist[asamsize].TX_NUM == "9"
 		def search = asams.asam_query().Searchparam
 		def testSearch = "Victim's Name:  yacht"
-		assert search[0].equals(testSearch)
+		assert search[0] == (testSearch)
 	}
 	
 	@Test
@@ -420,7 +421,7 @@ class Asam_masterIntegrationTestTests {
 		assert asamlist[asamsize].TX_NUM == "297"
 		def search = asams.asam_query().Searchparam
 		def testSearch = "Victim's Name:  yacht"
-		assert search[0].equals(testSearch)
+		assert search[0] == (testSearch)
 	}
 	
 	@Test
@@ -430,14 +431,14 @@ class Asam_masterIntegrationTestTests {
 		asams.params.MSI_outputOptionValue1 = "Number DESC"
 		def asamlist = asams.asam_query().Asamresult
 		assert asamlist.size() != 0
-		assert asamlist[0].TX_YYYY == "1996"
-		assert asamlist[0].TX_NUM == "9"
+		assert asamlist[0].TX_YYYY == "2009"
+		assert asamlist[0].TX_NUM == "297"
 		def asamsize = asamlist.size() - 1
-		assert asamlist[asamsize].TX_YYYY == "2009"
-		assert asamlist[asamsize].TX_NUM == "297"
+		assert asamlist[asamsize].TX_YYYY == "1996"
+		assert asamlist[asamsize].TX_NUM == "9"
 		def search = asams.asam_query().Searchparam
 		def testSearch = "Victim's Name:  yacht"
-		assert search[0].equals(testSearch)
+		assert search[0] == (testSearch)
 	}
 	
 	@Test
@@ -454,7 +455,7 @@ class Asam_masterIntegrationTestTests {
 		assert asamlist[asamsize].TX_NUM == "297"
 		def search = asams.asam_query().Searchparam
 		def testSearch = "Victim's Name:  yacht"
-		assert search[0].equals(testSearch)
+		assert search[0] == (testSearch)
 	}
 	
 	@Test
@@ -473,7 +474,7 @@ class Asam_masterIntegrationTestTests {
 		assert asamlist[asamsize].TX_NUM == "119"
 		def search = asams.asam_query().Searchparam
 		def testSearch = "Victim's Name:  yacht"
-		assert search[0].equals(testSearch)
+		assert search[0] == (testSearch)
 	}
 	
 	@Test
@@ -492,7 +493,7 @@ class Asam_masterIntegrationTestTests {
 		assert asamlist[asamsize].TX_NUM == "351"
 		def search = asams.asam_query().Searchparam
 		def testSearch = "Victim's Name:  yacht"
-		assert search[0].equals(testSearch)
+		assert search[0] == (testSearch)
 	}
 	
 	@Test
@@ -511,7 +512,7 @@ class Asam_masterIntegrationTestTests {
 		assert asamlist[asamsize].TX_NUM == "119"
 		def search = asams.asam_query().Searchparam
 		def testSearch = "Victim's Name:  yacht"
-		assert search[0].equals(testSearch)
+		assert search[0] == (testSearch)
 	}
 	
 	@Test
@@ -530,7 +531,7 @@ class Asam_masterIntegrationTestTests {
 		assert asamlist[asamsize].TX_NUM == "351"
 		def search = asams.asam_query().Searchparam
 		def testSearch = "Victim's Name:  yacht"
-		assert search[0].equals(testSearch)
+		assert search[0] == (testSearch)
 	}
 	
 	@Test
@@ -546,7 +547,7 @@ class Asam_masterIntegrationTestTests {
 		assert asamlist[0].TX_NUM == "244"
 		def search = asams.asam_query().Searchparam
 		def testSearch = "Victim's Name:  yacht"
-		assert search[0].equals(testSearch)
+		assert search[0] == (testSearch)
 	}
 	
 }
