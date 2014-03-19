@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="msi_main"/>
+		<meta name="layout" content="main"/>
 		<title>Maritime Safety Information</title>
 		
 	</head>

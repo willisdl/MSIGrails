@@ -23,7 +23,7 @@
 				<g:render template="/common/msiHeader" />
 			</div>
 			<div id="msileftnav">
-				<g:render template="/common/msiLeftnav" />
+				
 			</div>
 			<g:layoutBody/>
 			
