@@ -6,13 +6,13 @@
   <area shape="rect" coords="74,0,314,15" href="http://www1.nga.mil/" alt="Click to visit NGA home." target="_top">
 </map>
 
-<table border="0" style="padding: 0; border-spacing: 0; width: 765px">
-  <tr style="background-color: black">
-    <td ><img usemap="#topLogoMap" border="0" src="${resource(dir: 'images', file: 'nga_banner_top.gif')}" alt="Top portion of NGA banner." /></td>
-    <td><img src="${resource(dir: 'images', file: 'nga_banner_top_clip.gif')}" alt="Clip image for NGA banner."></td>
-  </tr>
+<table style="border:0; padding: 0; border-spacing: 0; width: 765px">
+  	<tr style="background-color: black; height:20px">
+		<td style="border:0px; padding: 0px; border-spacing: 0px"><img usemap="#topLogoMap" src="${resource(dir: 'images', file: 'nga_banner_top.gif')}" alt="Top portion of NGA banner."/></td>
+		<td style="border:0px; padding: 0px; border-spacing: 0px"><img src="${resource(dir: 'images', file: 'nga_banner_top_clip.gif')}" alt="Clip image for NGA banner."></td>
+	</tr>
 </table>
-<table border="0" style="padding: 0; border-spacing: 0; width: 778px">
+<table style="border:0; padding: 0; border-spacing: 0; width: 778px">
   <tr>
     <td style="width: 143px; background-color: #cccccc">&nbsp;</td>
     <td style="text-align: right">

@@ -18,21 +18,22 @@
 		<r:layoutResources />
 	</head>
 	<body>
-		<div id="page">
-			<div id="msihead">
-				<g:render template="/common/msiHeader" />
-			</div>
-			<div id="msileftnav">
-				
-			</div>
-			<g:layoutBody/>
+	<g:render template="/common/msiHeader" />
+	<table style="border-spacing: 0; padding: 0; border: 0">
+  		<tr>
+    		<td style="width: 145px; background-color: #cccccc; border-spacing: 0; padding: 0; border: 0; vertical-align: top">
+      			<g:render template="/common/msiLeftNav" />
+    		</td>
+    		<td style="width: 638px; border-spacing: 0; padding: 0; border: 0; vertical-align: top">
+				<g:layoutBody/>
+	  			<g:javascript library="application"/>
+				<r:layoutResources />
+    		</td>
+  		</tr>
+	</table>
 			
-			
-			<g:javascript library="application"/>
-			<r:layoutResources />
-		</div>
-		<div class="footer">
-				<g:render template="/common/msiFooter" />
-		</div>
+	<div class="footer">
+		<g:render template="/common/msiFooter" />
+	</div>
 	</body>
 </html>
