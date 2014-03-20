@@ -31,9 +31,7 @@
   </td>
 </tr>
 
-<tr>
-  <td><img src="${resource(dir: 'images', file: 'spacer.gif')}" border="0" alt="spacer" /></td>
-</tr>
+
 
 <tr class="nga-verticalNavLine">
   <td style="padding-top: 3px; padding-bottom: 3px;" class="nga-verticalNavLoginTitle">&nbsp;Find...</td>
@@ -172,7 +170,7 @@
   <td
   style="border-bottom: 1px solid rgb(170, 170, 170); background-color: rgb(204, 204, 204); padding-bottom: 3px; padding-left: 7px;">
     <a title="Access/Download calculators for solutions to common navigational computations" class="nga-verticalNavLink"
-       href="${Calculators}" style="text-decoration: none">Nautical Calculators</a></td>
+       href="#" style="text-decoration: none">Nautical Calculators</a></td>
 </tr>
 
 <tr>
@@ -185,7 +183,7 @@
   <td
   style="border-bottom: 1px solid rgb(170, 170, 170); background-color: rgb(204, 204, 204); padding-bottom: 3px; padding-left: 7px;">
     <a title="Visit the public Website of NGA's Digital Nautical Chart product" class="nga-verticalNavLink" target="dnc"
-       href="${pageContext.request.contextPath}/DNC.portal" style="text-decoration: none">DNC Homepage</a></td>
+       href="/DNC.portal" style="text-decoration: none">DNC Homepage</a></td>
 </tr>
 
 

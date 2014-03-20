@@ -8,7 +8,8 @@
 	</head>
 	<body>
 		<div id="page-body" role="main">
-		<html:render file="/Users/davidwillis/Sites/MSISiteContent/Articles/MaritimeSafetyInformation.html"/>
+		<br/><br/>
+		<html:render file="${grailsApplication.config.repo_path }MSISiteContent/Articles/MaritimeSafetyInformation.html"/>
 			
 			
 		</div>

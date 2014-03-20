@@ -56,17 +56,15 @@ grails.web.disable.multipart=false
 // request parameters to mask when logging exceptions
 grails.exceptionresolver.params.exclude = ['password']
 
+
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
 
 environments {
-    development_pc {
-        grails.logging.jul.usebridge = true
-		repo_path = "E:\\sites\\"
-    }
-	development_mac {
+	development {
 		grails.logging.jul.usebridge = true
-		repo_path = "/Users/davidwillis/Sites/"
+		def repo_path = "/Users/davidwillis/Sites/"
+		//def repo_path = "E:\\sites\\"
 	}
     production {
         grails.logging.jul.usebridge = false

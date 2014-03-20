@@ -21,7 +21,7 @@
           <tr style="text-align: right">
             <td style="width: 400px" />
             <!-- Home link (to Maritime) -->
-            <td style="white-space: nowrap"><a href="#" class="nga-headerLink">Home</a></td>
+            <td style="white-space: nowrap"><a href="/MSIGrails" class="nga-headerLink">Home</a></td>
 
             <!-- FAQ link -->
             <td><img src="${resource(dir: 'images', file: 'spacer.gif')}" border="0" alt="spacer" /></td>
