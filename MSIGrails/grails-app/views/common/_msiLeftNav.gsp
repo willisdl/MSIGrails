@@ -68,8 +68,7 @@
 <tr>
   <td
   style="border-bottom: 1px solid rgb(170, 170, 170); background-color: rgb(204, 204, 204); padding-bottom: 3px; padding-left: 7px;">
-    <a title="Search the Anti-Shipping Activity Message database for reports of piracy" href="#" style="text-decoration: none"
-       class="nga-verticalNavLink">ASAM Search</a>
+    <g:link class="nga-verticalNavLink" title="Search the Anti-Shipping Activity Message database for reports of piracy" controller="Asam_master" action="asam">ASAM Search</g:link>
     </td>
 </tr>
 
@@ -177,7 +176,7 @@
   <td
   style="border-bottom: 1px solid rgb(170, 170, 170); background-color: rgb(204, 204, 204); padding-bottom: 3px; padding-left: 7px;">
     <a title="View a graphic depiction of NGA's Chart Subregion scheme" class="nga-verticalNavLink"
-       href="/MSISiteContent/StaticFiles/Images/subr_1.jpe" style="text-decoration: none" target="_blank">Geographic Locator</a></td>
+       href="http://msi.nga.mil/MSISiteContent/StaticFiles/Images/subr_1.jpe" style="text-decoration: none" target="_blank">Geographic Locator</a></td>
 </tr>
 <tr>
   <td

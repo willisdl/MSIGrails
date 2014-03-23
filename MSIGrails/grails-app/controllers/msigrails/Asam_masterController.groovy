@@ -10,7 +10,7 @@ class Asam_masterController {
 	def asam(){
 		def subregions = []
 		subregions = asamService.getSubs()
-		[Subregions: subregions]
+		render(view: "asamquery", model: [Subregions: subregions])
 	}
 	
 	def asam_query(){
@@ -30,9 +30,10 @@ class Asam_masterController {
 		def asams
 		def searchparam = []
 		
+		
 		asams = asamService.asamQuery(msi_filter_type, msi_filter_value, msi_sort_value, msi_filter_type1, msi_filter_value1)
 		searchparam = asamService.getSearchParams(msi_filter_type, msi_filter_value, msi_sort_value, msi_filter_type1, msi_filter_value1)
 		
-		[Asamresult: asams, Searchparam: searchparam]
+		render(view: "asamResults", model: [Asamresult: asams, Searchparam: searchparam])
 	}
 }

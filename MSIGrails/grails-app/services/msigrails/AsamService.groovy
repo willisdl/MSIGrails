@@ -41,14 +41,14 @@ class AsamService {
 		def sort_type
 		def sort_direct
 		
-		if (sort_value.equals("Date DESC")){sort_ord = "a.occur_date desc, a.TX_YYYY desc, a.TX_NUM desc"}
-		if (sort_value.equals("Date DESC") || sort_value.equals("Date ASC")){sort_type = "date"}
-		if (sort_value.equals("Number DESC") || sort_value.equals("Number ASC")){sort_type = "number"}
+		if (sort_value.equals("Date_DESC")){sort_ord = "a.occur_date desc, a.TX_YYYY desc, a.TX_NUM desc"}
+		if (sort_value.equals("Date_DESC") || sort_value.equals("Date_ASC")){sort_type = "date"}
+		if (sort_value.equals("Number_DESC") || sort_value.equals("Number_ASC")){sort_type = "number"}
 		if (sort_value.contains("ASC")){sort_direct = "asc"}
 		if (sort_value.contains("DESC")){sort_direct = "desc"}
-		if (sort_value.equals("Date ASC")){sort_ord = "a.occur_date ASC, a.TX_YYYY ASC, a.TX_NUM ASC"}
-		if (sort_value.equals("Number DESC")){sort_ord = "a.TX_YYYY DESC, a.TX_NUM DESC"}
-		if (sort_value.equals("Number ASC")){sort_ord = "a.TX_YYYY ASC, a.TX_NUM ASC"}
+		if (sort_value.equals("Date_ASC")){sort_ord = "a.occur_date ASC, a.TX_YYYY ASC, a.TX_NUM ASC"}
+		if (sort_value.equals("Number_DESC")){sort_ord = "a.TX_YYYY DESC, a.TX_NUM DESC"}
+		if (sort_value.equals("Number_ASC")){sort_ord = "a.TX_YYYY ASC, a.TX_NUM ASC"}
 		def asams
 		
 		switch (filter_type){

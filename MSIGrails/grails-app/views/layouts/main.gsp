@@ -27,6 +27,7 @@
     		<td style="width: 638px; border-spacing: 0; padding: 0; border: 0; vertical-align: top">
 				<g:layoutBody/>
 	  			<g:javascript library="application"/>
+	  			<g:javascript src="form_object_utility.js" />
 				<r:layoutResources />
     		</td>
   		</tr>

@@ -63,7 +63,7 @@ grails.hibernate.cache.queries = false
 environments {
 	development {
 		grails.logging.jul.usebridge = true
-		def repo_path = "/Users/davidwillis/Sites/"
+		repo_path = "/Users/davidwillis/Sites/"
 		//def repo_path = "E:\\sites\\"
 	}
     production {
