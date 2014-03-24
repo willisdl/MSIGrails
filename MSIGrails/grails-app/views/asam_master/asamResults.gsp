@@ -80,7 +80,7 @@
           </tr>
           <tr>
             <td colspan="2" class="nga-resultsSpacer">
-              <img src="${resource(dir: 'images', file: spacer.gif')}" border="0" alt="space" width="1" />
+              <img src="${resource(dir: 'images', file: 'spacer.gif')}" border="0" alt="space" width="1" />
             </td>
           </tr>
         </table>
@@ -125,8 +125,6 @@
                       Geographical Location:
                     </td>
                     <td class="nga-resultsCourier" style="text-align: left; vertical-align: top; white-space: nowrap">
-                      <% lat = asam.str_lat %>
-                      <% lon = asam.str_lon %>
                       ${asam.str_lat[0] }&deg; ${asam.str_lat[1] }&quot; ${asam.str_lat[2] }&apos; ${asam.str_lat[3] }<br>${asm.str_lon[0] }&deg; ${asm.str_lon[1] }&quot; ${asm.str_lon[2] }&apos; ${asm.str_lon[3] }
                     </td>
                   </tr>
@@ -163,7 +161,7 @@
 
     <tr>
       <td colspan="2" class="nga-resultsSpacer">
-        <img src="/assets/spacer.gif" border="0" alt="space" width="1" />
+        <img src="${resource(dir: 'images', file: 'spacer.gif')}" border="0" alt="space" width="1" />
       </td>
     </tr>
   </table>
@@ -171,7 +169,7 @@
   <table border="0" style="width: 645px; margin: 0px auto; padding: 0; border-spacing: 0">
     <tr>
       <td colspan="2">
-        <img src="/assets/spacer.gif" border="0" alt="spacer" height="15" />
+        <img src="${resource(dir: 'images', file: 'spacer.gif')}" border="0" alt="spacer" height="15" />
       </td>
     </tr>
     <tr>
@@ -187,23 +185,23 @@
     </tr>
     <tr>
       <td colspan="2">
-        <img src="/assets/spacer.gif" border="0" alt="spacer" height="12" />
+        <img src="${resource(dir: 'images', file: 'spacer.gif')}" border="0" alt="spacer" height="12" />
       </td>
     </tr>
     <tr>
       <td colspan="2" style="background-color: #000000; white-space: nowrap">
-        <img src="/assets/nga_footer.gif" border="0" height="15" width="645" alt="NGA Footer"/>
-        <img src="/assets/spacer.gif" border="0" alt="spacer">
+        <img src="${resource(dir: 'images', file: 'nga_footer.gif')}" border="0" height="15" width="645" alt="NGA Footer"/>
+        <img src="${resource(dir: 'images', file: 'spacer.gif')}" border="0" alt="spacer">
       </td>
     </tr>
     <tr style="padding-bottom: 5px">
       <td style="padding-left: 15px; white-space: nowrap">
         <a href="javascript:window.print()" title="Print this page" class="nga-footerLink">
-          <img src="/assets/footer_icon_print.gif" alt="Print this page" width="14" height="9" border="0"/>Print page
+          <img src="${resource(dir: 'images', file: 'footer_icon_print.gif')}" alt="Print this page" width="14" height="9" border="0"/>Print page
         </a>
       </td>
       <td>
-        <img src="/assets/spacer.gif" border="0" alt="spacer" width="1"/>
+        <img src="${resource(dir: 'images', file: 'spacer.gif')}" border="0" alt="spacer" width="1"/>
       </td>
     </tr>
     <tr>
